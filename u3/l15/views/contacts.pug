@@ -1,0 +1,10 @@
+body
+    form(action="/subscriber", method="POST")
+        p
+            | Name:
+            input(type='text', name='name', placeholder='Name')
+            | email:
+            input(type='text', name='email', placeholder='Email')
+            | ZipCode:
+            input(type='text', name='zipCode', placeholder='Zip Code')
+            input(type='submit', value='Submit')
