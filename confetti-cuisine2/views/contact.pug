@@ -1,7 +1,10 @@
-form(role='form' method='POST' action='/contact')
-    label(for='name') Name:
-    input(type='text', name="name")
-    label(for='email') Email:
-    input(for='email', name="email")
-    button(type='submit', value="Submit") Submit
-
+body
+    form(role='form' method='POST' action='/contact')
+        p
+            | Name:
+            input(type='text', name='name', placeholder='Name')
+            | email:
+            input(type='text', name='email', placeholder='Email')
+            | ZipCode:
+            input(type='text', name='zipCode', placeholder='Zip Code')
+            input(type='submit', value='Submit')

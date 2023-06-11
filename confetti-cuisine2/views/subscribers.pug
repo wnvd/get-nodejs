@@ -1,0 +1,18 @@
+doctype html
+html
+    head 
+        title Subscribers
+    body
+        h3 Subscribers
+
+        table(style='100%', border='1')
+            tr
+                th Name
+                th Email
+        each subscriber in subscribers=data
+            tr
+                td #{name=subscriber.name}
+                =" "
+                td #{email=subscriber.email}
+                br
+                |

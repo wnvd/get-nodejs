@@ -1,14 +1,20 @@
 const { showCourses, showSignUp, postedSignUpForm } = require("./controllers/homeController.js");
 const { pageNotFoundError, internalServerError } = require("./controllers/errorHandler.js");
+const { createSubscriber, getSubscribers } = require("./controllers/subscribers.js");
 const express = require("express");
+const connectDB = require("./config/db.js");
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "pug");
 
+app.use(express.json());
 app.use(express.urlencoded({
-    extended: false,
+    extended: true,
 }));
+
+// connecting to database
+connectDB();
 
 app.get("/", (req, res) => {
     res.render("index");
@@ -16,7 +22,8 @@ app.get("/", (req, res) => {
 
 app.get("/courses", showCourses);
 app.get("/contact", showSignUp);
-app.post("/contact", postedSignUpForm);
+app.get("/subscribers", getSubscribers);
+app.post("/contact", createSubscriber);
 
 app.use(internalServerError);
 app.use(pageNotFoundError);
